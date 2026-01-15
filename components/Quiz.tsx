@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, Zap, Target, Brain, ShieldAlert, Sparkles, Activity, ShieldCheck, ArrowRight, BarChart3, ScanLine, Lock } from 'lucide-react';
 import { cn } from '../lib/utils';
@@ -22,30 +23,30 @@ const questions = [
     id: 2,
     text: "Qual destas frases descreve sua rotina alimentar?",
     options: [
-      { text: "Como o que dá, quando dá (sem rotina).", weight: "perdidao" },
-      { text: "Tento comer limpo, mas sinto muita fome/ansiedade.", weight: "cansado" },
-      { text: "Peso a comida, bato os macros, mas o corpo não muda.", weight: "estagnado" },
-      { text: "Dieta regrada, mas estagnei no peso/carga.", weight: "pronto" }
+      { text: "Sem rotina. Como o que dá, quando dá.", weight: "perdidao" },
+      { text: "Tento comer limpo, mas sinto fome constante.", weight: "cansado" },
+      { text: "Bato os macros com precisão, mas não evoluo.", weight: "estagnado" },
+      { text: "Dieta regrada, mas estagnei na força/carga.", weight: "pronto" }
     ]
   },
   {
     id: 3,
     text: "Sobre o uso de estimulantes (Café/Pré-treino):",
     options: [
-      { text: "Não vivo sem. Se não tomar, não treino.", weight: "cansado" },
-      { text: "Tomo às vezes, mas me dá taquicardia/ansiedade.", weight: "perdidao" },
-      { text: "Tomo, mas parece que não faz mais efeito.", weight: "estagnado" },
-      { text: "Uso estrategicamente, mas quero otimizar.", weight: "pronto" }
+      { text: "Dependência total. Sem cafeína não treino.", weight: "cansado" },
+      { text: "Uso esporádico, sinto taquicardia/ansiedade.", weight: "perdidao" },
+      { text: "Tomo doses altas e não sinto mais efeito.", weight: "estagnado" },
+      { text: "Uso estratégico, mas busco otimização real.", weight: "pronto" }
     ]
   },
   {
     id: 4,
     text: "Qual é o seu maior inimigo hoje?",
     options: [
-      { text: "O espelho. Não vejo mudança visual.", weight: "estagnado" },
-      { text: "O cansaço mental e falta de foco.", weight: "cansado" },
-      { text: "A falta de conhecimento técnico.", weight: "perdidao" },
-      { text: "O platô de força (cargas não sobem).", weight: "pronto" }
+      { text: "Estética estagnada. O espelho não muda.", weight: "estagnado" },
+      { text: "Cansaço mental e falta de foco/drive.", weight: "cansado" },
+      { text: "Falta de direcionamento técnico.", weight: "perdidao" },
+      { text: "Platô de força extrema (as cargas pararam).", weight: "pronto" }
     ]
   }
 ];
@@ -53,39 +54,39 @@ const questions = [
 const profiles = {
   cansado: {
     title: "O Cansado Crônico",
-    subtitle: "Déficit de Recuperação",
+    subtitle: "Déficit de Recuperação do SNC",
     stats: { energia: 25, recuperacao: 15, foco: 40, potencial: 90 },
-    description: "Seu sistema nervoso está sobrecarregado. Você treina, mas seu corpo está lutando para sobreviver, não para crescer. Você não precisa de 'mais treino', precisa de modulação de cortisol e otimização mitocondrial.",
+    description: "Seu sistema nervoso central está sobrecarregado. Você treina pesado, mas seu corpo está em modo de sobrevivência, não de hipertrofia. Você não precisa de mais treino, precisa de modulação hormonal natural e otimização de sono.",
     icon: <ShieldAlert className="w-10 h-10 text-red-500" />,
     color: "text-red-500",
     bg: "bg-red-500/10",
     border: "border-red-500/20"
   },
   perdidao: {
-    title: "O Iniciante Desperdiçado",
-    subtitle: "Falha de Estratégia",
+    title: "O Potencial Desperdiçado",
+    subtitle: "Erro Crítico de Estratégia",
     stats: { energia: 60, recuperacao: 50, foco: 30, potencial: 95 },
-    description: "Você tem vontade, mas sua bioquímica está uma bagunça. Você está jogando energia fora por falta de direcionamento ergogênico. Otimizar isso vai te dar resultados de 1 ano em 3 meses.",
+    description: "Você tem o combustível, mas não tem o mapa. Sua bioquímica está uma bagunça por falta de direcionamento ergogênico. Otimizar isso vai te dar resultados de 1 ano em apenas alguns meses.",
     icon: <Brain className="w-10 h-10 text-secondary" />,
     color: "text-secondary",
     bg: "bg-secondary/10",
     border: "border-secondary/20"
   },
   estagnado: {
-    title: "O Falso Platô",
-    subtitle: "Bloqueio Metabólico",
+    title: "O Platô Biológico",
+    subtitle: "Homeostase Metabólica",
     stats: { energia: 70, recuperacao: 60, foco: 85, potencial: 98 },
-    description: "Você faz tudo certo (treino e dieta), mas bateu no teto natural. Seu corpo entrou em homeostase. O protocolo vai 'assustar' seu metabolismo para voltar a responder sem precisar de hormônios.",
+    description: "Você faz o básico bem, mas seu corpo se adaptou. Você bateu no 'teto natural' padrão. O protocolo vai quebrar sua homeostase para forçar uma nova resposta adaptativa sem o uso de esteroides.",
     icon: <Target className="w-10 h-10 text-primary" />,
     color: "text-primary",
     bg: "bg-primary/10",
     border: "border-primary/20"
   },
   pronto: {
-    title: "A Máquina Travada",
-    subtitle: "Otimização Final",
+    title: "A Elite Adormecida",
+    subtitle: "Otimização de Performance Final",
     stats: { energia: 85, recuperacao: 70, foco: 80, potencial: 100 },
-    description: "Você já está acima da média, mas sabe que poderia ser elite. Faltam os ajustes finos de 'timing' e sinergia de compostos para destravar sua força bruta e densidade real.",
+    description: "Você já está acima da média, mas falta o 'ajuste fino'. Detalhes de timing nutricional e sinergia de compostos naturais vão destravar o seu verdadeiro limite genético.",
     icon: <Zap className="w-10 h-10 text-accent" />,
     color: "text-accent",
     bg: "bg-accent/10",
@@ -102,9 +103,8 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
 
   const handleAnswer = (weight: string, index: number) => {
-    // Feedback visual e tátil
     setSelectedOption(index);
-    if (navigator.vibrate) navigator.vibrate(50); // Vibração suave no mobile
+    if (navigator.vibrate) navigator.vibrate(50);
 
     setTimeout(() => {
       const newAnswers = [...answers, weight];
@@ -116,13 +116,12 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
       } else {
         calculateResult(newAnswers);
       }
-    }, 400); // Delay para ver a seleção
+    }, 400);
   };
 
   const calculateResult = (finalAnswers: string[]) => {
     setIsCalculating(true);
     
-    // Sequência de "Terminal/Hacker"
     const logs = [
       "Processando variáveis de treino...",
       "Analisando perfil metabólico...",
@@ -153,12 +152,10 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
     }, 4000);
   };
 
-  // TELA DE CARREGAMENTO (TERMINAL)
   if (isCalculating) {
     return (
       <div className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center p-6 overflow-hidden">
         <div className="w-full max-w-md space-y-8 relative">
-          {/* Círculo de Scan */}
           <div className="relative flex justify-center">
             <div className="w-32 h-32 rounded-full border-2 border-primary/30 flex items-center justify-center relative">
                <div className="absolute inset-0 rounded-full border-t-2 border-primary animate-spin" />
@@ -177,7 +174,7 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
                    <span className="text-primary">root@system:~$</span> {loadingText}
                 </p>
                 <div className="h-2 w-full bg-zinc-800 rounded-full mt-4 overflow-hidden">
-                   <div className="h-full bg-primary animate-[progress_4s_ease-in-out_forwards]" style={{width: '100%'}} />
+                   <div className="h-full bg-primary" style={{ width: '100%', animation: 'progress 4s linear' }} />
                 </div>
              </div>
           </div>
@@ -190,7 +187,6 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
     );
   }
 
-  // TELA DE RESULTADO
   if (result) {
     const profile = profiles[result];
     return (
@@ -198,12 +194,11 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
         <div className="min-h-screen p-4 md:p-8 flex flex-col items-center justify-center">
           <div className="max-w-2xl w-full bg-zinc-900 border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden relative">
             
-            {/* Header do Resultado */}
             <div className="relative p-8 md:p-12 text-center border-b border-white/5 bg-zinc-950/50">
                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
                
                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-6">
-                 <ScanLine className="w-3 h-3" /> Análise Concluída
+                 <ScanLine className="w-3 h-3" /> Varredura Concluída
                </div>
 
                <div className={cn("w-20 h-20 mx-auto rounded-3xl flex items-center justify-center border-2 mb-6 shadow-[0_0_30px_rgba(0,0,0,0.5)]", profile.bg, profile.border, profile.color)}>
@@ -214,17 +209,14 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
                  {profile.title}
                </h2>
                <p className={cn("text-sm font-black uppercase tracking-[0.3em]", profile.color)}>
-                 Diagnóstico: {profile.subtitle}
+                 {profile.subtitle}
                </p>
             </div>
 
-            {/* Corpo do Resultado */}
             <div className="p-8 md:p-12 space-y-8">
-              
-              {/* Estatísticas (Radar Bars) */}
               <div className="space-y-4">
                  <div className="flex items-center gap-2 text-[10px] font-black uppercase text-zinc-500 tracking-widest mb-2">
-                    <BarChart3 className="w-3 h-3" /> Seus Indicadores Atuais
+                    <BarChart3 className="w-3 h-3" /> Análise Biométrica Estimada
                  </div>
                  {Object.entries(profile.stats).map(([key, value], i) => (
                     <div key={i} className="space-y-1">
@@ -242,27 +234,24 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
                  ))}
               </div>
 
-              {/* Descrição */}
               <div className="p-6 bg-white/[0.02] border border-white/5 rounded-2xl">
                  <p className="text-zinc-300 italic font-medium leading-relaxed text-sm md:text-base">
-                   <span className="text-white font-bold">Análise:</span> {profile.description}
+                   <span className="text-white font-bold">Diagnóstico:</span> {profile.description}
                  </p>
               </div>
 
-              {/* Call to Action */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2 justify-center text-[10px] font-black text-primary uppercase tracking-widest animate-pulse">
-                   <ShieldCheck className="w-3 h-3" /> Solução Recomendada Disponível
+                   <ShieldCheck className="w-3 h-3" /> Protocolo Customizado Pronto
                 </div>
                 <button 
                   onClick={() => onComplete(result)}
                   className="w-full py-6 bg-primary hover:bg-orange-400 text-black font-black text-lg md:text-xl uppercase tracking-tighter rounded-xl transition-all shadow-[0_10px_40px_rgba(249,115,22,0.2)] border-b-4 border-orange-700 flex items-center justify-center gap-3 active:scale-95 group"
                 >
-                  ACESSAR PROTOCOLO CORRETIVO
+                  DESTRAVAR MINHA EVOLUÇÃO
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-
             </div>
           </div>
         </div>
@@ -270,10 +259,8 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
     );
   }
 
-  // TELA DE PERGUNTAS (QUIZ)
   return (
     <div className="fixed inset-0 z-[100] bg-zinc-950 flex flex-col items-center justify-center p-4 md:p-6 overflow-hidden">
-      {/* Barra de Progresso Superior */}
       <div className="absolute top-0 left-0 w-full h-1.5 bg-zinc-900">
         <div 
           className="h-full bg-gradient-to-r from-primary via-orange-400 to-secondary transition-all duration-500 shadow-[0_0_20px_rgba(249,115,22,0.6)]" 
@@ -282,7 +269,6 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
       </div>
 
       <div className="max-w-2xl w-full space-y-10 relative">
-        {/* Header da Pergunta */}
         <div className="space-y-6 text-center animate-fade-in-up">
           <div className="inline-flex items-center justify-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.3em] bg-primary/5 px-4 py-2 rounded-full border border-primary/10">
             <Sparkles className="w-3 h-3" /> Diagnóstico de Performance
@@ -293,12 +279,11 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
                {questions[step].text}
              </h2>
              <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">
-               Questão {step + 1} / {questions.length}
+               Questão {step + 1} de {questions.length}
              </p>
           </div>
         </div>
 
-        {/* Opções */}
         <div className="grid grid-cols-1 gap-3">
           {questions[step].options.map((option, i) => (
             <button
@@ -330,7 +315,6 @@ const Quiz: React.FC<QuizProps> = ({ onComplete, onClose }) => {
           ))}
         </div>
 
-        {/* Footer */}
         <div className="flex justify-center pt-8">
           <button 
             onClick={onClose}

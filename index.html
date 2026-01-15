@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Força Proibida – O Guia Natural dos Recursos que os Atletas NÃO Falam</title>
     <meta name="description" content="Descubra o guia natural dos recursos que a elite esconde. Força, foco e performance extrema sem segredos." />
+    
+    <!-- Favicon Personalizado (Caveira Força Proibida) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%2309090b' stroke='%23f97316' stroke-width='4'/><text x='50%' y='65%' dominant-baseline='middle' text-anchor='middle' font-size='60'>💀</text></svg>">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
@@ -53,6 +57,7 @@
             animation: {
               "fade-in-up": "fade-in-up 0.6s ease-out forwards",
               "float": "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
             },
             keyframes: {
               "fade-in-up": {
@@ -62,6 +67,10 @@
               "float": {
                 "0%, 100%": { transform: "translateY(0)" },
                 "50%": { transform: "translateY(-10px)" },
+              },
+              "pulse-slow": {
+                "0%, 100%": { opacity: "1" },
+                "50%": { opacity: "0.5" },
               }
             }
           },
@@ -82,16 +91,30 @@
         }
         
         body {
-          @apply bg-background text-foreground font-sans;
+          @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-white;
         }
       }
       
       .text-gradient {
-        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-orange-400 to-secondary;
       }
       
       .hero-glow {
         background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        @apply bg-zinc-950;
+      }
+      ::-webkit-scrollbar-thumb {
+        @apply bg-zinc-800 rounded-full border-2 border-zinc-950;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        @apply bg-primary;
       }
     </style>
   <script type="importmap">
