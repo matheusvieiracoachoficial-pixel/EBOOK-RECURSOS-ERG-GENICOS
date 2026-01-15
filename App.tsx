@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Manifesto from './components/Manifesto';
+import Creator from './components/Creator'; // Novo Componente
 import Results from './components/Results';
 import Benefits from './components/Benefits';
 import Chapters from './components/Chapters';
@@ -81,6 +82,7 @@ export default function App() {
           userProfile={userProfile} 
         />
         <Manifesto />
+        <Creator /> 
         <Results />
         <Benefits />
         <Chapters />

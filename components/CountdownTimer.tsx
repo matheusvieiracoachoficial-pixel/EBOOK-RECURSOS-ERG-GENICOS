@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, ShieldAlert } from 'lucide-react';
 
-const STORAGE_KEY = 'forca_proibida_timer_start';
+// REMOVIDO: const STORAGE_KEY = 'forca_proibida_timer_start'; 
 const DURATION_MINUTES = 30;
 
 interface CountdownTimerProps {
@@ -18,17 +18,9 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onExpire, isExpired, va
   useEffect(() => {
     setIsInitialized(true);
     
+    // CORREÇÃO: Define o tempo inicial sempre como "agora", sem buscar do localStorage.
     const now = Date.now();
-    let startTimeStr = localStorage.getItem(STORAGE_KEY);
-    let startTime: number;
-
-    if (!startTimeStr) {
-      startTime = now;
-      localStorage.setItem(STORAGE_KEY, startTime.toString());
-    } else {
-      startTime = parseInt(startTimeStr, 10);
-    }
-
+    const startTime = now;
     const endTime = startTime + DURATION_MINUTES * 60 * 1000;
 
     const calculateTime = () => {
@@ -38,8 +30,11 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onExpire, isExpired, va
       
       setTimeLeft(secondsRemaining);
       
-      if (secondsRemaining <= 0 && !isExpired) {
-        onExpire();
+      if (secondsRemaining <= 0) {
+        // Verifica se já não está expirado para evitar loop
+        if (!isExpired) {
+          onExpire();
+        }
       }
     };
 
