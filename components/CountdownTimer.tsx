@@ -1,7 +1,6 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { Clock, AlertTriangle, ShieldAlert } from 'lucide-react';
-import { cn } from '../lib/utils';
+import React, { useState, useEffect } from 'react';
+import { Clock, ShieldAlert } from 'lucide-react';
 
 const STORAGE_KEY = 'forca_proibida_timer_start';
 const DURATION_MINUTES = 30;
@@ -17,6 +16,8 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onExpire, isExpired, va
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
+    setIsInitialized(true);
+    
     const now = Date.now();
     let startTimeStr = localStorage.getItem(STORAGE_KEY);
     let startTime: number;
@@ -44,7 +45,6 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onExpire, isExpired, va
 
     calculateTime();
     const interval = setInterval(calculateTime, 1000);
-    setIsInitialized(true);
 
     return () => clearInterval(interval);
   }, [onExpire, isExpired]);
@@ -63,18 +63,64 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onExpire, isExpired, va
   if (!isInitialized) return null;
 
   if (isExpired) {
+    // LÓGICA DO POP-UP: Exibe apenas no timer 'sticky' (global) para travar a tela
+    if (variant === 'sticky') {
+      return (
+        <div id="popup" className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-lg p-4 animate-in fade-in zoom-in duration-500">
+           {/* Caixinha de Pop-up solicitada com estilos exatos */}
+           <div style={{
+             background: '#111', 
+             color: '#fff', 
+             padding: '30px', 
+             borderRadius: '12px', 
+             textAlign: 'center', 
+             maxWidth: '400px', 
+             margin: 'auto',
+             border: '1px solid #333',
+             boxShadow: '0 0 50px rgba(249, 115, 22, 0.15)'
+           }}>
+            <h2 style={{color: '#ffae00', fontSize: '24px', fontWeight: 'bold', marginBottom: '15px'}}>⚠️ A oferta expirou…</h2>
+            <p style={{fontSize: '18px', margin: '20px 0', color: '#ddd', lineHeight: '1.5'}}>
+              ...mas eu sei como é perder o timing. <br />
+              Então aqui vai <strong>uma última chance real</strong>:
+            </p>
+            <p style={{fontSize: '20px', fontWeight: 'bold', color: '#fff', marginBottom: '25px'}}>
+              Libere o protocolo FORÇA PROIBIDA <br />
+              <span style={{color: '#ffae00'}}>com bônus extra</span> por tempo limitadíssimo.
+            </p>
+            <a 
+              href="https://pay.cakto.com.br/3fik4hg_724336" 
+              style={{
+                display: 'inline-block', 
+                background: '#ffae00', 
+                color: '#000', 
+                padding: '15px 25px', 
+                fontWeight: 'bold', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                marginTop: '10px',
+                textTransform: 'uppercase',
+                boxShadow: '0 4px 15px rgba(255, 174, 0, 0.3)'
+              }}
+            >
+              QUERO MINHA SEGUNDA CHANCE
+            </a>
+          </div>
+        </div>
+      );
+    }
+
+    // Se for o timer inline (dentro da página), exibe apenas aviso discreto
     return (
-      <div className={cn(
-        "bg-red-950/20 border border-red-500/30 p-4 rounded-2xl text-center animate-pulse",
-        variant === 'sticky' ? "fixed bottom-0 left-0 w-full z-[60] backdrop-blur-xl border-t" : "w-full my-6"
-      )}>
+      <div className="w-full my-6 bg-red-950/20 border border-red-500/30 p-4 rounded-2xl text-center animate-pulse">
         <p className="text-red-500 font-black uppercase tracking-widest text-[10px] md:text-xs italic flex items-center justify-center gap-2">
-          <ShieldAlert className="w-4 h-4" /> Essa condição expirou. Em breve novas vagas.
+          <ShieldAlert className="w-4 h-4" /> Essa condição expirou.
         </p>
       </div>
     );
   }
 
+  // Timer Inline (na página de vendas)
   if (variant === 'inline') {
     return (
       <div className="bg-zinc-900 border border-white/5 p-6 rounded-[2rem] text-center space-y-3 my-8 shadow-2xl">
@@ -91,6 +137,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onExpire, isExpired, va
     );
   }
 
+  // Timer Sticky (Barra inferior fixa)
   return (
     <div className="fixed bottom-0 left-0 w-full z-[60] bg-zinc-950/95 backdrop-blur-xl border-t border-primary/20 p-4 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
       <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">

@@ -4,7 +4,6 @@ import { ShieldCheck, Lock, ShieldAlert } from 'lucide-react';
 
 interface GuaranteeProps {
   onPurchase?: () => void;
-  // @fix: Added isExpired to GuaranteeProps to match App.tsx usage and resolve type mismatch error.
   isExpired?: boolean;
 }
 
@@ -23,10 +22,10 @@ const Guarantee: React.FC<GuaranteeProps> = ({ onPurchase, isExpired }) => {
 
           <div className="text-center md:text-left space-y-4">
             <h3 className="text-3xl font-black text-foreground font-display uppercase italic leading-none">
-              RISCO <span className="text-accent">ZERO.</span>
+              GARANTIA <span className="text-accent">BLINDADA.</span>
             </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed italic">
-              Você tem 7 dias para testar todo o conteúdo. Se por qualquer motivo sentir que não é para você, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.
+            <p className="text-muted-foreground text-lg leading-relaxed italic font-medium">
+              Sentiu zero diferença em 7 dias? Manda mensagem e eu te devolvo os R$19. Sem chororô. O risco é todo meu.
             </p>
           </div>
         </div>
@@ -36,24 +35,23 @@ const Guarantee: React.FC<GuaranteeProps> = ({ onPurchase, isExpired }) => {
             CHEGOU A HORA DE <br /><span className="text-primary">DECIDIR.</span>
           </h4>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto italic leading-relaxed">
-            Você vai continuar estagnado aceitando menos do que seu corpo pode entregar, ou vai assumir o controle da sua performance com inteligência?
+            Você tem 7 dias pra mudar o jogo. Ou mais 7 pra continuar reclamando.
           </p>
           
           <div className="flex flex-col items-center gap-6">
-            {/* @fix: Conditionally render the CTA button or an expiration message based on the isExpired prop. */}
             {!isExpired ? (
               <button 
                 onClick={onPurchase}
                 className="bg-primary hover:bg-orange-400 text-black font-black px-16 py-8 rounded-2xl text-2xl uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_0_50px_rgba(249,115,22,0.3)] border-b-8 border-orange-700"
               >
-                QUERO MEU GUIA AGORA!
+                QUERO MEU PROTOCOLO AGORA!
               </button>
             ) : (
               <div className="bg-red-950/20 border border-red-500/30 p-8 rounded-2xl text-center animate-pulse">
                 <p className="text-red-500 font-black uppercase tracking-widest text-xs md:text-sm italic flex items-center justify-center gap-2 mb-2">
                   <ShieldAlert className="w-5 h-5" /> OPORTUNIDADE ENCERRADA
                 </p>
-                <p className="text-zinc-600 text-[10px] font-bold uppercase tracking-widest leading-tight">Sua janela de oportunidade fechou. Aguarde a próxima turma.</p>
+                <p className="text-zinc-600 text-[10px] font-bold uppercase tracking-widest leading-tight">Sua janela de oportunidade fechou.</p>
               </div>
             )}
             

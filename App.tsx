@@ -27,21 +27,22 @@ export default function App() {
   const [isExpired, setIsExpired] = useState(false);
   const [userProfile, setUserProfile] = useState<string | null>(null);
 
-  // Controle de navegação via URL (ex: redirecionamento pós-compra da Cakto)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    
+    // Roteamento via URL
     if (params.get('step') === 'thanks') {
       setCurrentView('thanks');
     }
+
     window.scrollTo(0, 0);
-  }, [currentView]);
+  }, []);
 
   const handlePurchaseNavigation = () => {
-    // Redirecionamento direto para o checkout Cakto
     window.location.href = CAKTO_LINK_FINAL;
   };
 
-  // 1. TELA DE OBRIGADO (Pós-venda)
+  // 1. TELA DE OBRIGADO
   if (currentView === 'thanks') {
     return (
       <div className="min-h-screen bg-zinc-950 text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
@@ -52,14 +53,13 @@ export default function App() {
     );
   }
 
-  // 2. TELA DE DIAGNÓSTICO (Entrada do Funil)
+  // 2. TELA DE DIAGNÓSTICO
   if (currentView === 'quiz') {
     return (
       <Quiz 
         onComplete={(profile) => {
           setUserProfile(profile);
           setCurrentView('sales');
-          // Rola para a oferta após um pequeno delay para carregar a página de vendas
           setTimeout(() => {
             document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
           }, 500);

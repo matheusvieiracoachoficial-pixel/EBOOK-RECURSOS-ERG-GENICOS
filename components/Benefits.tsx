@@ -1,28 +1,28 @@
 
 import React from 'react';
-import { CheckCircle2, Zap, Target, Brain, ShieldCheck, Flame, Sword } from 'lucide-react';
+import { CheckCircle2, Zap, Target, Brain, ShieldCheck, Flame, Sword, Utensils, Dumbbell, Pill } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const benefits = [
   {
-    title: "Esmagar Platôs de Força",
-    description: "Saia do peso de amador. Use a inteligência bioquímica para carregar o que hoje parece impossível.",
-    icon: <Sword className="w-8 h-8 text-primary" />
+    title: "Guia Alimentar Sem Neurose",
+    description: "Aprenda a comer para crescer sem viver com uma balança no bolso. Simples e funcional.",
+    icon: <Utensils className="w-8 h-8 text-primary" />
   },
   {
-    title: "Recuperação de Predador",
-    description: "Protocolos que permitem que você treine como um atleta de elite e esteja pronto 2x mais rápido.",
-    icon: <Zap className="w-8 h-8 text-secondary" />
+    title: "Treino de Ataque",
+    description: "Protocolos para Academia ou Casa. Intensidade real para sair do 'fofinho' para o denso.",
+    icon: <Dumbbell className="w-8 h-8 text-secondary" />
   },
   {
-    title: "Foco Dopaminérgico Puro",
-    description: "Elimine a fadiga mental. Tenha foco de sniper do primeiro ao último set, sem tremedeira vazia.",
-    icon: <Brain className="w-8 h-8 text-accent" />
+    title: "Lista de Suplementos Reais",
+    description: "Pare de rasgar dinheiro. Saiba exatamente o que comprar para ter performance.",
+    icon: <Pill className="w-8 h-8 text-accent" />
   },
   {
-    title: "Biometria Superior",
-    description: "Pare de ouvir 'guru de instagram'. Use o que a ciência de laboratório valida para performance humana real.",
-    icon: <ShieldCheck className="w-8 h-8 text-orange-400" />
+    title: "Resultados em 7 Dias",
+    description: "Mais força, mais pump, mais recuperação. Sinta a diferença na primeira semana.",
+    icon: <Flame className="w-8 h-8 text-orange-400" />
   }
 ];
 
@@ -35,7 +35,7 @@ const Benefits: React.FC = () => {
             CHEGA DE <br /><span className="text-primary underline decoration-primary/20">DESCULPAS.</span>
           </h2>
           <p className="text-xl md:text-2xl text-zinc-500 italic max-w-3xl mx-auto font-black uppercase tracking-tighter">
-            SE VOCÊ NÃO AGUENTA MAIS SER O "CARA QUE TREINA E NÃO MUDA", ESTA É A SUA SAÍDA.
+            VOCÊ VAI RECEBER O MAPA COMPLETO PARA SAIR DO PLATÔ:
           </p>
         </div>
 
@@ -59,17 +59,17 @@ const Benefits: React.FC = () => {
 
         <div className="p-12 bg-primary/5 border border-primary/20 rounded-[3rem] text-center max-w-4xl mx-auto space-y-8 relative overflow-hidden">
            <div className="absolute -bottom-4 -right-4 opacity-5">
-              <Flame className="w-40 h-40 text-primary" />
+              <Sword className="w-40 h-40 text-primary" />
            </div>
-           <h3 className="text-3xl font-black text-foreground uppercase italic font-display tracking-tight leading-none">O PROTOCOLO PROIBIDO</h3>
+           <h3 className="text-3xl font-black text-foreground uppercase italic font-display tracking-tight leading-none">ISSO AQUI NÃO É UM PDF.</h3>
            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed italic font-medium">
-             Este não é um eBook "bonitinho". É um manual técnico de <span className="text-white font-black underline decoration-primary underline-offset-4">Biohacking Esportivo</span>. Você vai aprender a manipular sua bioquímica natural para atingir o ápice. Sem segredos, sem enrolação e sem desculpas.
+             É um ataque. Um plano de guerra pro seu corpo sair do “quase” e entrar no modo mutante. <span className="text-white font-black underline decoration-primary underline-offset-4">Não serve pra quem coleciona guia. Serve pra quem quer entrar no jogo.</span>
            </p>
            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-primary italic">
-              <div>• Esmagamento de Platô</div>
-              <div>• Bioquímica de Elite</div>
-              <div>• Zero Amadorismo</div>
-              <div>• Resultado Brutal</div>
+              <div>• Força Bruta</div>
+              <div>• Zero Neurose</div>
+              <div>• Fim do Amadorismo</div>
+              <div>• Resultado Visível</div>
            </div>
         </div>
       </div>

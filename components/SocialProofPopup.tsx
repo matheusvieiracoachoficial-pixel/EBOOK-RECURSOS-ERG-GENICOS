@@ -15,7 +15,7 @@ const BRAZILIAN_DATA = [
 ];
 
 const AGGRESSIVE_MESSAGES = [
-  { sub: "Você ainda tá pensando?", icon: <Target className="w-4 h-4" /> },
+  { sub: "Você ainda está pensando?", icon: <Target className="w-4 h-4" /> },
   { sub: "Decisão tomada em 2 minutos.", icon: <Zap className="w-4 h-4" /> },
   { sub: "Tem gente comprando enquanto você decide.", icon: <ShieldAlert className="w-4 h-4" /> },
   { sub: "Enquanto você hesita, outros já estão aplicando.", icon: <Flame className="w-4 h-4" /> },

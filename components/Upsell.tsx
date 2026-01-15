@@ -8,15 +8,15 @@ interface UpsellProps {
 }
 
 /**
- * LINK DO UPSELL NA CACTO (R$ 97)
- * Configure a "URL de Sucesso" na Cacto para redirecionar para:
+ * LINK DO UPSELL NA CAKTO (R$ 97)
+ * Configure a "URL de Sucesso" na Cakto para redirecionar para:
  * https://seusite.com/?step=thanks
  */
-const CACTO_UPSELL_LINK = 'https://pay.cacto.com.br/UPSELL_ELITE';
+const CAKTO_UPSELL_LINK = 'https://pay.cakto.com.br/UPSELL_ELITE';
 
 const Upsell: React.FC<UpsellProps> = ({ onDecline }) => {
   const handleUpsellPurchase = () => {
-    window.location.href = CACTO_UPSELL_LINK;
+    window.location.href = CAKTO_UPSELL_LINK;
   };
 
   return (

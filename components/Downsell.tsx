@@ -7,15 +7,15 @@ interface DownsellProps {
 }
 
 /**
- * LINK DO DOWNSELL NA CACTO (R$ 47 ou similar)
- * Configure a "URL de Sucesso" na Cacto para redirecionar para:
+ * LINK DO DOWNSELL NA CAKTO (R$ 47 ou similar)
+ * Configure a "URL de Sucesso" na Cakto para redirecionar para:
  * https://seusite.com/?step=thanks
  */
-const CACTO_DOWNSELL_LINK = 'https://pay.cacto.com.br/PROTOCOLO_GUIADO';
+const CAKTO_DOWNSELL_LINK = 'https://pay.cakto.com.br/PROTOCOLO_GUIADO';
 
 const Downsell: React.FC<DownsellProps> = ({ onComplete }) => {
   const handleDownsellPurchase = () => {
-    window.location.href = CACTO_DOWNSELL_LINK;
+    window.location.href = CAKTO_DOWNSELL_LINK;
   };
 
   return (

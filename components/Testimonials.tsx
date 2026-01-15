@@ -12,7 +12,7 @@ const testimonials = [
   {
     name: "Ricardo F.",
     age: "34 anos | GO",
-    text: "Sério, conteúdo de curso premium! Muito acima do que eu esperava de um ebook.",
+    text: "Sério, conteúdo de curso premium! Muito acima do que eu esperava de um e-book.",
     tag: "Qualidade Premium"
   },
   {

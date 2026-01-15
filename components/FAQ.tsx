@@ -10,7 +10,7 @@ const LINK_WHATSAPP_SUPORTE = 'https://wa.me/5500000000000?text=Oi,%20quero%20ti
 
 const faqs = [
   {
-    q: "Isso é seguro para minha saúde?",
+    q: "Isso é seguro para a minha saúde?",
     a: "Sim. Diferente de fóruns e dicas de 'influenciadores', nosso guia é baseado estritamente em estudos clínicos. Focamos em recursos naturais e redução de danos, respeitando os limites biológicos do seu corpo.",
     icon: <ShieldCheck className="w-5 h-5" />
   },
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "O acesso é imediato? Como recebo?",
-    a: "Instantâneo. Assim que o pagamento for confirmado, você recebe um link no seu e-mail para baixar o eBook Força Proibida e acessar o App (se optar pelo Combo PRO).",
+    a: "Instantâneo. Assim que o pagamento for confirmado, você recebe um link no seu e-mail para baixar o E-book Força Proibida e acessar o App (se optar pelo Combo PRO).",
     icon: <Smartphone className="w-5 h-5" />
   },
   {

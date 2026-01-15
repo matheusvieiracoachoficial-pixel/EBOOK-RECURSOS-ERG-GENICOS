@@ -4,7 +4,7 @@ import { Gift, PlayCircle, Map, Target, CheckCircle } from 'lucide-react';
 
 const bonuses = [
   {
-    title: "Mini Curso Performance 360",
+    title: "Minicurso Performance 360",
     desc: "Vídeo-aulas práticas sobre ciclos e estratégias avançadas.",
     icon: <PlayCircle className="w-8 h-8 text-primary" />,
     value: "R$ 197,00"
