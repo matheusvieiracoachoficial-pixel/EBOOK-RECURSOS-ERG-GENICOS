@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Crown, Check, Trophy, ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
+import { Crown, Check, Trophy, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 interface UpsellProps {
@@ -36,23 +36,23 @@ const Upsell: React.FC<UpsellProps> = ({ onAccept, onDecline }) => {
 
         {/* Offer Container with Side Image */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Floating Side Image */}
-          <div className="hidden lg:block absolute -left-48 top-1/2 -translate-y-1/2 w-80 h-[500px] z-20 pointer-events-none drop-shadow-[0_0_30px_rgba(249,115,22,0.2)]">
+          {/* Floating Side Image (Requested Edit) */}
+          <div className="hidden lg:block absolute -left-56 top-1/2 -translate-y-1/2 w-96 h-[600px] z-20 pointer-events-none">
              <img 
               src="https://i.imgur.com/vHq0L5K.png" 
               alt="Matheus Vieira" 
-              className="w-full h-full object-contain filter grayscale-[0.2]"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_40px_rgba(249,115,22,0.3)]"
              />
           </div>
 
           {/* Main Card */}
           <div className="bg-zinc-900 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl relative group ml-0 lg:ml-20">
              <div className="grid grid-cols-1 md:grid-cols-5">
-                <div className="md:col-span-2 relative aspect-[4/5] md:aspect-auto">
+                <div className="md:col-span-2 relative aspect-[4/5] md:aspect-auto overflow-hidden">
                    <img 
                     src="https://i.imgur.com/sbCyyGn.png" 
-                    alt="Matheus Vieira" 
-                    className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
+                    alt="Matheus Vieira Card" 
+                    className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
                    <div className="absolute bottom-6 left-6 flex items-center gap-3">

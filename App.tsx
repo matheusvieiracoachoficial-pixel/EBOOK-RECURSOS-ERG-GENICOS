@@ -40,6 +40,7 @@ export default function App() {
     if (step === 'thanks') setCurrentView('thanks');
     if (step === 'upsell') setCurrentView('upsell');
     if (step === 'downsell') setCurrentView('downsell');
+    if (step === 'sales') setCurrentView('sales');
     window.scrollTo(0, 0);
   }, []);
 
@@ -96,43 +97,26 @@ export default function App() {
         <>
           <Header hideNav />
           <main>
-            {/* 1. HEADLINE (Hero) */}
             <Hero 
               onPurchase={goToCheckout} 
               onQuiz={() => setCurrentView('quiz')} 
               isExpired={isExpired} 
               userProfile={userProfile} 
             />
-
-            {/* 2. PROVAS SOCIAIS (Antes/Depois) */}
             <SocialProof />
-
-            {/* 3. MÓDULOS DO CURSO */}
             <Chapters />
-
-            {/* 4. BÔNUS EXCLUSIVOS */}
             <Bonuses />
-
-            {/* 5. COMPARAÇÃO (NOVA SEÇÃO) */}
             <Comparison />
-
-            {/* 6. OFERTA */}
             <Pricing 
               onPurchase={goToCheckout} 
               isExpired={isExpired} 
               onExpire={() => setIsExpired(true)} 
             />
-
             <FAQ />
-
-            {/* 7. SOBRE O CRIADOR */}
             <Creator />
           </main>
           <Footer />
-          <StickyCTA 
-            onPurchase={goToCheckout} 
-            isExpired={isExpired} 
-          />
+          <StickyCTA onPurchase={goToCheckout} isExpired={isExpired} />
           <SocialProofPopup />
           <CountdownTimer onExpire={() => setIsExpired(true)} isExpired={isExpired} />
         </>
