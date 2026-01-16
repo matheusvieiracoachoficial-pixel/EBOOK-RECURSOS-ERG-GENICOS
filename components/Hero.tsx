@@ -26,7 +26,6 @@ const Hero: React.FC<HeroProps> = ({ onPurchase, onQuiz, isExpired, userProfile 
         {/* Brand Reveal */}
         <div className="flex flex-col items-center justify-center">
           <div className="relative h-64 md:h-96 w-full max-w-[420px] drop-shadow-[0_0_50px_rgba(249,115,22,0.4)]">
-             {/* Fix: fetchpriority changed to fetchPriority for React compatibility */}
              <img 
               src="https://i.imgur.com/TPQK7ag.png" 
               alt="Logo Força Proibida" 
