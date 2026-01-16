@@ -1,70 +1,143 @@
 
 import React from 'react';
-import { Crown, Check, ShieldCheck, Trophy, ChevronRight, Zap, ArrowRight, Sparkles } from 'lucide-react';
+import { Crown, Check, Trophy, ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
+import { cn } from '../lib/utils';
 
 interface UpsellProps {
-  onComplete: () => void;
+  onAccept: () => void;
   onDecline: () => void;
 }
 
-/**
- * LINK DO UPSELL NA CAKTO (R$ 97)
- * Configure a "URL de Sucesso" na Cakto para redirecionar para:
- * https://seusite.com/?step=thanks
- */
-const CAKTO_UPSELL_LINK = 'https://pay.cakto.com.br/UPSELL_ELITE';
-
-const Upsell: React.FC<UpsellProps> = ({ onDecline }) => {
-  const handleUpsellPurchase = () => {
-    window.location.href = CAKTO_UPSELL_LINK;
-  };
-
+const Upsell: React.FC<UpsellProps> = ({ onAccept, onDecline }) => {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-12">
-      <div className="fixed top-0 left-0 w-full h-1.5 bg-zinc-900 z-50">
-        <div className="h-full bg-primary w-4/5 shadow-[0_0_20px_rgba(249,115,22,0.8)]" />
+    <section className="min-h-screen bg-zinc-950 text-white py-12 px-4 relative overflow-hidden flex flex-col items-center">
+      {/* Background Effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+      
+      <div className="max-w-6xl w-full relative z-10 space-y-12 animate-fade-in-up">
+        
+        {/* Progress Bar */}
+        <div className="max-w-4xl mx-auto w-full h-2 bg-zinc-900 rounded-full overflow-hidden border border-white/5">
+          <div className="w-[85%] h-full bg-primary shadow-[0_0_15px_rgba(249,115,22,0.5)] transition-all duration-1000" />
+        </div>
+
+        <div className="text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] italic">
+            ESPERA! NÃO FECHE ESTA PÁGINA
+          </div>
+          <h1 className="text-4xl md:text-7xl font-black font-display uppercase italic tracking-tighter leading-[0.85]">
+            ADICIONE MAIS <span className="text-primary">RESULTADO</span> <br />
+            AO SEU PROTOCOLO.
+          </h1>
+          <p className="text-zinc-500 font-bold uppercase tracking-widest text-xs md:text-sm italic max-w-2xl mx-auto">
+            VOCÊ ESTÁ PRESTES A COMEÇAR O FORÇA PROIBIDA... MAS E SE VOCÊ TIVESSE ACESSO DIRETO AO CRIADOR DO MÉTODO?
+          </p>
+        </div>
+
+        {/* Offer Container with Side Image */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Floating Side Image */}
+          <div className="hidden lg:block absolute -left-48 top-1/2 -translate-y-1/2 w-80 h-[500px] z-20 pointer-events-none drop-shadow-[0_0_30px_rgba(249,115,22,0.2)]">
+             <img 
+              src="https://i.imgur.com/vHq0L5K.png" 
+              alt="Matheus Vieira" 
+              className="w-full h-full object-contain filter grayscale-[0.2]"
+             />
+          </div>
+
+          {/* Main Card */}
+          <div className="bg-zinc-900 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl relative group ml-0 lg:ml-20">
+             <div className="grid grid-cols-1 md:grid-cols-5">
+                <div className="md:col-span-2 relative aspect-[4/5] md:aspect-auto">
+                   <img 
+                    src="https://i.imgur.com/sbCyyGn.png" 
+                    alt="Matheus Vieira" 
+                    className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
+                   <div className="absolute bottom-6 left-6 flex items-center gap-3">
+                      <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg">
+                         <Crown className="w-6 h-6 text-black" />
+                      </div>
+                      <div>
+                         <p className="text-xs font-black uppercase text-primary italic leading-none">VIP STRATEGY</p>
+                         <p className="text-lg font-black text-white italic leading-none">MATHEUS VIEIRA</p>
+                      </div>
+                   </div>
+                </div>
+
+                <div className="md:col-span-3 p-8 md:p-14 space-y-8 flex flex-col justify-center">
+                   <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <Trophy className="w-8 h-8 text-secondary" /> 
+                        <h3 className="text-3xl font-black text-white uppercase italic tracking-tighter">
+                          CONSULTORIA RÁPIDA (7 DIAS)
+                        </h3>
+                      </div>
+                      <p className="text-zinc-400 text-base italic font-medium leading-relaxed">
+                        Durante 7 dias, você vai poder tirar dúvidas diretamente comigo no WhatsApp — treinador, nutricionista e especialista em performance.
+                      </p>
+                   </div>
+
+                   <ul className="space-y-4">
+                      {[
+                        "Análise rápida da sua rotina",
+                        "Ajuste fino de dosagens",
+                        "Suporte direto no WhatsApp VIP",
+                        "Feedback sobre execução de treinos"
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-xs md:text-sm font-black uppercase italic text-zinc-300">
+                          <Check className="w-5 h-5 text-accent shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                   </ul>
+
+                   <div className="pt-8 border-t border-white/5 space-y-8">
+                      <div className="flex flex-col">
+                         <span className="text-zinc-500 text-[10px] font-black uppercase tracking-widest line-through">De R$ 197,00 por apenas</span>
+                         <div className="flex items-center gap-1">
+                            <span className="text-2xl font-bold text-primary italic">R$</span>
+                            <span className="text-8xl font-black text-white tracking-tighter italic leading-none">97</span>
+                            <span className="text-xl font-black text-primary italic">,00</span>
+                         </div>
+                      </div>
+
+                      <div className="space-y-4">
+                        <button 
+                          onClick={onAccept}
+                          className="w-full py-8 bg-primary hover:bg-orange-400 text-black font-black text-xl uppercase tracking-tighter rounded-2xl transition-all shadow-xl shadow-primary/30 border-b-8 border-orange-800 flex items-center justify-center gap-4 group"
+                        >
+                          SIM, QUERO A CONSULTORIA
+                          <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                        </button>
+                        
+                        <button 
+                          onClick={onDecline}
+                          className="w-full py-4 text-zinc-600 hover:text-zinc-400 font-black text-[10px] uppercase tracking-widest italic transition-colors underline underline-offset-4"
+                        >
+                          Não, prefiro tentar sozinho e arriscar errar as doses.
+                        </button>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        {/* Security Footer */}
+        <div className="flex flex-wrap justify-center gap-12 opacity-30 grayscale pointer-events-none py-12">
+           <div className="flex items-center gap-3">
+              <ShieldCheck className="w-5 h-5" />
+              <span className="text-[12px] font-black uppercase tracking-widest">Segurança Total</span>
+           </div>
+           <div className="flex items-center gap-3">
+              <Zap className="w-5 h-5" />
+              <span className="text-[12px] font-black uppercase tracking-widest">Acesso Imediato</span>
+           </div>
+        </div>
       </div>
-
-      <main className="max-w-4xl mx-auto px-6 space-y-12 animate-fade-in-up">
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em] italic">OFERTA VIP EXCLUSIVA</div>
-          <h1 className="text-3xl md:text-6xl font-black font-display uppercase italic tracking-tighter leading-none">DOBRE SEUS <span className="text-primary">RESULTADOS</span> <br />COM SUPORTE <span className="text-gradient">INDIVIDUAL.</span></h1>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-7 space-y-8">
-            <div className="bg-zinc-900 border border-white/5 p-8 rounded-[2.5rem] relative overflow-hidden group">
-              <Trophy className="absolute -bottom-8 -right-8 w-48 h-48 text-primary opacity-5 -rotate-12 transition-opacity group-hover:opacity-10" />
-              <div className="relative z-10 space-y-6">
-                <div className="flex items-center gap-3"><Crown className="w-8 h-8 text-primary" /><h2 className="text-2xl font-black uppercase italic tracking-tighter">CONSULTORIA ELITE 90</h2></div>
-                <ul className="space-y-4">
-                  {["Acompanhamento Individual WhatsApp", "Análise de Biomarcadores", "Protocolos de Precisão", "Suporte 90 Dias", "Garantia de Evolução"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm font-bold uppercase tracking-tight italic"><Check className="w-4 h-4 text-primary" />{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="flex items-center gap-6 px-4 opacity-20 grayscale"><ShieldCheck className="w-10 h-10" /><Zap className="w-10 h-10" /></div>
-          </div>
-
-          <div className="lg:col-span-5">
-            <div className="bg-zinc-900 border border-white/10 rounded-[3rem] p-8 space-y-8 shadow-2xl">
-              <div className="space-y-2 text-center">
-                <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">Acesso Vitalício</p>
-                <div className="text-5xl font-black text-white italic">R$ 97</div>
-                <p className="text-primary text-[10px] font-black uppercase tracking-widest">Ou em até 12x no cartão</p>
-              </div>
-
-              <button onClick={handleUpsellPurchase} className="w-full py-7 bg-primary hover:bg-orange-400 text-black rounded-2xl font-black text-xl uppercase tracking-tighter transition-all border-b-8 border-orange-800 shadow-xl group">
-                <Sparkles className="w-5 h-5 inline mr-2 animate-pulse" /> QUERO ACELERAR AGORA <ArrowRight className="w-5 h-5 inline ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <button onClick={onDecline} className="w-full text-center text-zinc-600 hover:text-white transition-colors text-[10px] font-black uppercase tracking-widest underline underline-offset-4 decoration-zinc-800 italic">Continuar sem acompanhamento</button>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
+    </section>
   );
 };
 

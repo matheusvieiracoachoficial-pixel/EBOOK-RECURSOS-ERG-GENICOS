@@ -1,61 +1,84 @@
 
 import React from 'react';
-import { Check, Zap, BookOpenCheck, ArrowRight } from 'lucide-react';
+import { ArrowRight, Check, ShieldAlert, Sparkles, Zap, Gift } from 'lucide-react';
 
 interface DownsellProps {
-  onComplete: () => void;
+  onAccept: () => void;
+  onDecline: () => void;
 }
 
-/**
- * LINK DO DOWNSELL NA CAKTO (R$ 47 ou similar)
- * Configure a "URL de Sucesso" na Cakto para redirecionar para:
- * https://seusite.com/?step=thanks
- */
-const CAKTO_DOWNSELL_LINK = 'https://pay.cakto.com.br/PROTOCOLO_GUIADO';
-
-const Downsell: React.FC<DownsellProps> = ({ onComplete }) => {
-  const handleDownsellPurchase = () => {
-    window.location.href = CAKTO_DOWNSELL_LINK;
-  };
-
+const Downsell: React.FC<DownsellProps> = ({ onAccept, onDecline }) => {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans py-16">
-      <div className="fixed top-0 left-0 w-full h-2 bg-zinc-900 z-50">
-        <div className="h-full bg-secondary w-[95%] shadow-[0_0_20px_rgba(250,204,21,0.5)]" />
-      </div>
-
-      <main className="max-w-4xl mx-auto px-6 space-y-12 text-center animate-fade-in-up">
-        <div className="space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-widest italic">ÚLTIMA TENTATIVA: APOIO MÁXIMO</div>
-          <h1 className="text-4xl md:text-7xl font-black font-display uppercase italic tracking-tighter leading-none">NÃO TENTE <span className="text-secondary">SOZINHO</span>.</h1>
-          <p className="text-lg text-zinc-400 italic font-medium">Se a consultoria não é para o seu momento agora, garanta pelo menos o <strong>Protocolo Guiado</strong> por um valor simbólico.</p>
-        </div>
-
-        <div className="bg-zinc-900 border border-white/5 rounded-[3rem] p-10 md:p-16 relative overflow-hidden group">
-          <BookOpenCheck className="absolute -bottom-8 -right-8 w-64 h-64 text-secondary opacity-5" />
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="text-left space-y-6">
-              <div className="flex items-center gap-3"><Zap className="w-6 h-6 text-secondary" /><h3 className="text-2xl font-black uppercase italic tracking-tighter">PROTOCOLO GUIADO</h3></div>
-              <ul className="space-y-3">
-                {["Calculadoras de Dosagem", "Checklist de Saúde", "Manual de Stacks", "Guia de Exames"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm font-bold uppercase italic"><Check className="w-4 h-4 text-secondary" />{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-6">
-               <div className="text-center">
-                  <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest leading-none">Apenas Hoje</span>
-                  <div className="text-7xl font-black text-white italic font-display tracking-tighter">R$ 47</div>
-                  <span className="text-sm font-black text-secondary uppercase italic">Sem taxas extras</span>
-               </div>
-               <button onClick={handleDownsellPurchase} className="w-full py-6 bg-secondary hover:bg-yellow-400 text-black rounded-2xl font-black text-xl uppercase tracking-tighter border-b-8 border-yellow-700 shadow-xl group">QUERO O PROTOCOLO <ArrowRight className="w-5 h-5 inline ml-1 group-hover:translate-x-1 transition-transform" /></button>
-            </div>
+    <section className="min-h-screen bg-zinc-950 text-white py-12 px-4 flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full h-[400px] bg-secondary/5 blur-[120px] rounded-full pointer-events-none" />
+      
+      <div className="max-w-2xl w-full relative z-10 space-y-12 animate-fade-in-up">
+        
+        <div className="text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black uppercase tracking-[0.3em] italic">
+            ÚLTIMA CHANCE COM DESCONTO
           </div>
+          <h1 className="text-4xl md:text-6xl font-black font-display uppercase italic tracking-tighter leading-none">
+            NÃO SAIA DE <br /><span className="text-secondary">MÃOS VAZIAS.</span>
+          </h1>
+          <p className="text-zinc-500 font-bold uppercase tracking-widest text-[10px] md:text-xs italic leading-relaxed">
+            SABEMOS QUE NEM SEMPRE É O MOMENTO CERTO... ENTÃO AQUI VAI UMA CHANCE ÚNICA.
+          </p>
         </div>
 
-        <button onClick={onComplete} className="text-zinc-700 hover:text-white transition-colors text-xs font-black uppercase tracking-widest underline underline-offset-8 italic">Pular esta etapa e ir para o acesso básico</button>
-      </main>
-    </div>
+        <div className="bg-zinc-900 border-2 border-dashed border-secondary/30 rounded-[2.5rem] p-8 md:p-12 text-center space-y-8 relative overflow-hidden">
+           <div className="absolute top-0 right-0 p-8 opacity-[0.03]">
+              <Gift className="w-48 h-48 text-secondary" />
+           </div>
+
+           <div className="space-y-4 relative z-10">
+              <h2 className="text-2xl font-black text-white uppercase italic tracking-tighter">
+                🔥 3 DICAS EXCLUSIVAS DE RESULTADO
+              </h2>
+              <p className="text-zinc-400 text-sm italic font-medium">
+                Essas são as mesmas orientações de alta performance que aplico com meus alunos presenciais. Prática, direta e sem enrolação.
+              </p>
+           </div>
+
+           <div className="bg-black/40 p-6 rounded-2xl border border-white/5 space-y-4">
+              <div className="flex flex-col items-center">
+                 <span className="text-zinc-600 text-[10px] font-black uppercase tracking-widest line-through">Preço Original R$ 47,00</span>
+                 <div className="flex items-center gap-1">
+                    <span className="text-lg font-bold text-secondary italic">R$</span>
+                    <span className="text-7xl font-black text-white tracking-tighter italic">9</span>
+                    <span className="text-xl font-black text-secondary italic">,90</span>
+                 </div>
+              </div>
+
+              <button 
+                onClick={onAccept}
+                className="w-full py-6 bg-secondary hover:bg-yellow-400 text-black font-black text-lg uppercase tracking-tighter rounded-xl transition-all shadow-xl shadow-secondary/20 border-b-4 border-yellow-700 flex items-center justify-center gap-3 group"
+              >
+                SIM, QUERO COM DESCONTO
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+           </div>
+
+           <button 
+            onClick={onDecline}
+            className="text-zinc-600 hover:text-zinc-400 font-black text-[10px] uppercase tracking-widest italic transition-colors underline underline-offset-4"
+          >
+            Não quero nada, obrigado.
+          </button>
+        </div>
+
+        <div className="flex justify-center gap-6 opacity-40">
+           <div className="flex items-center gap-2">
+              <ShieldAlert className="w-4 h-4 text-red-500" />
+              <span className="text-[10px] font-black uppercase tracking-widest italic">Acesso por 24h</span>
+           </div>
+           <div className="flex items-center gap-2">
+              <Zap className="w-4 h-4 text-secondary" />
+              <span className="text-[10px] font-black uppercase tracking-widest italic">Entrega Imediata</span>
+           </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

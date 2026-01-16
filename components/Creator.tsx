@@ -1,193 +1,120 @@
 
 import React from 'react';
-import { Microscope, Dumbbell, History, Quote, TrendingUp } from 'lucide-react';
-
-const timelineData = [
-  {
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
-    year: "17 anos",
-    title: "O Início Frustrante",
-    borderColor: "border-zinc-700",
-    textColor: "text-zinc-500"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop",
-    year: "Primeiros Passos",
-    title: "Treinos na Raça",
-    borderColor: "border-zinc-600",
-    textColor: "text-zinc-400"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop",
-    year: "Formação",
-    title: "Educação Física",
-    borderColor: "border-primary",
-    textColor: "text-primary"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop",
-    year: "Virada de Chave",
-    title: "O Primeiro Resultado",
-    borderColor: "border-primary",
-    textColor: "text-primary"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop",
-    year: "Consistência",
-    title: "Evolução Constante",
-    borderColor: "border-primary",
-    textColor: "text-primary"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=800&auto=format&fit=crop",
-    year: "O Método",
-    title: "Aplicação Prática",
-    borderColor: "border-accent",
-    textColor: "text-accent"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1581093458891-b9883f8792e4?q=80&w=800&auto=format&fit=crop",
-    year: "Autoridade",
-    title: "Consultoria Especializada",
-    borderColor: "border-accent",
-    textColor: "text-accent"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?q=80&w=800&auto=format&fit=crop",
-    year: "Estratégia",
-    title: "Nutrição Inteligente",
-    borderColor: "border-blue-500",
-    textColor: "text-blue-500"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1517963879466-e9b5ce382d69?q=80&w=800&auto=format&fit=crop",
-    year: "Vivência",
-    title: "Protocolo Validado",
-    borderColor: "border-blue-500",
-    textColor: "text-blue-500"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop",
-    year: "Nível Elite",
-    title: "Reconhecimento Nacional",
-    borderColor: "border-orange-500",
-    textColor: "text-orange-500"
-  }
-];
+import { Microscope, History, Quote, GraduationCap, ShieldCheck, Award, Users, Target } from 'lucide-react';
 
 const Creator: React.FC = () => {
   return (
-    <section id="creator" className="py-24 bg-zinc-950 px-4 relative overflow-hidden border-t border-white/5">
-      {/* Background Decor */}
-      <div className="absolute left-0 top-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[128px] pointer-events-none" />
+    <section id="creator" className="py-32 bg-zinc-950 px-4 relative overflow-hidden border-t border-white/5">
+      {/* Elementos de Brilho de Fundo */}
+      <div className="absolute left-0 top-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[128px] pointer-events-none" />
+      <div className="absolute right-0 bottom-1/4 w-[300px] h-[300px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto space-y-20">
-        
-        {/* PARTE 1: A HISTÓRIA TEXTUAL */}
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8 order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 text-primary font-black text-xs uppercase italic tracking-widest">
-              <History className="w-4 h-4" /> A Origem do Protocolo
-            </div>
-            
-            <h2 className="text-4xl md:text-6xl font-black text-foreground font-display uppercase italic tracking-tighter leading-[0.9]">
-              EU NÃO NASCI <br />
-              <span className="text-gradient">COM GENÉTICA DE MUTANTE.</span>
-            </h2>
+          
+          {/* Lado das Imagens / Visual */}
+          <div className="relative grid grid-cols-2 gap-4">
+             <div className="col-span-1 space-y-4">
+                <div className="relative h-64 md:h-80 rounded-[2.5rem] overflow-hidden border border-primary/30 shadow-2xl group">
+                   <img 
+                    src="https://i.imgur.com/L4bi8wA.jpeg" 
+                    alt="Matheus Vieira - Especialista" 
+                    className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <div className="relative h-48 md:h-64 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-xl group">
+                   <img 
+                    src="https://i.imgur.com/wxBQWYX.jpeg" 
+                    alt="Graduação Matheus Vieira" 
+                    className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                   />
+                   <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+             </div>
 
-            <div className="space-y-6 text-lg text-zinc-400 font-medium leading-relaxed italic">
-              <p>
-                <strong className="text-white not-italic">Aos 17 anos</strong>, eu era o cara que fazia tudo "certo" e continuava invisível. Treinava até a falha, comia o que mandavam, gastava todo meu dinheiro em suplementos coloridos... e o espelho não mudava.
-              </p>
+             <div className="col-span-1 pt-12">
+                <div className="relative h-[400px] md:h-[550px] rounded-[3rem] overflow-hidden border-2 border-primary/40 shadow-[0_0_60px_rgba(249,115,22,0.2)] group">
+                   <img 
+                    src="https://i.imgur.com/EmB0fNQ.jpeg" 
+                    alt="Transformação Real Matheus" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
+                   
+                   {/* Badge de Autoridade Flutuante */}
+                   <div className="absolute top-6 left-6 bg-black/60 backdrop-blur-md border border-white/10 p-4 rounded-2xl flex flex-col items-center justify-center">
+                      <span className="text-primary font-black text-2xl leading-none italic">+1000</span>
+                      <span className="text-[8px] font-black text-white/60 uppercase tracking-widest mt-1">VIDAS MUDADAS</span>
+                   </div>
+
+                   <div className="absolute bottom-10 left-6 right-6 space-y-3 text-center">
+                      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-black text-[10px] font-black uppercase italic tracking-widest shadow-xl">
+                         <Award className="w-3 h-3" /> ESTRATEGISTA CHEFE
+                      </div>
+                      <h4 className="text-3xl font-black text-white uppercase italic tracking-tighter drop-shadow-lg">MATHEUS VIEIRA</h4>
+                      <p className="text-[10px] text-white/60 font-black uppercase tracking-[0.3em] italic">Fundador Força Proibida</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+
+          {/* Lado do Texto / Autoridade */}
+          <div className="space-y-10">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 text-primary font-black text-xs uppercase italic tracking-widest bg-primary/5 px-4 py-2 rounded-xl border border-primary/10">
+                <History className="w-4 h-4" /> A MENTE POR TRÁS DO MÉTODO
+              </div>
               
-              <div className="pl-6 border-l-4 border-primary/40 py-2">
-                <p className="text-white text-xl font-bold font-display uppercase tracking-tight">
-                  "Eu decidi parar de ouvir 'influenciadores' e comecei a ouvir a bioquímica."
+              <h2 className="text-5xl md:text-8xl font-black text-foreground font-display uppercase italic tracking-tighter leading-[0.85]">
+                👤 QUEM É <br />
+                <span className="text-gradient">MATHEUS VIEIRA?</span>
+              </h2>
+            </div>
+
+            <div className="space-y-8 text-lg md:text-xl text-zinc-400 font-medium leading-relaxed italic">
+              <div className="space-y-4">
+                <p>
+                  Com apenas <span className="text-white font-black underline decoration-primary decoration-2 underline-offset-4">21 anos</span>, Matheus Vieira decidiu quebrar o silêncio sobre o que realmente funciona na alta performance.
+                </p>
+                <p>
+                  Educador, Nutricionista e <span className="text-primary font-black">Especialista em Bioquímica</span>, ele não apenas estuda a ciência — ele a manipula para gerar resultados que desafiam a genética comum.
+                </p>
+                <p>
+                  Já são mais de <span className="text-white font-black">1.000 pessoas</span> que tiveram suas vidas e físicos transformados através de sua metodologia direta, agressiva e validada por resultados reais.
+                </p>
+              </div>
+              
+              <div className="bg-zinc-900/50 p-10 rounded-[3rem] border-l-8 border-primary shadow-2xl relative overflow-hidden group">
+                <div className="absolute -top-4 -right-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <Quote className="w-32 h-32 text-white" />
+                </div>
+                <p className="text-white text-2xl md:text-3xl font-black font-display uppercase tracking-tight leading-tight relative z-10 italic">
+                  "Eu não estou aqui para te dar um PDF. Estou aqui para te dar o <span className="text-primary">DOMÍNIO</span> sobre a sua própria biologia."
                 </p>
               </div>
 
-              <p>
-                Vesti o jaleco. Mergulhei em fisiologia, endocrinologia e nutrição avançada. Descobri que a elite não usa "sorte". Eles usam <strong className="text-primary not-italic">protocolos de otimização</strong>.
-              </p>
-
-              <p>
-                O <span className="text-white font-black">Força Proibida</span> não é um achismo. É a documentação exata do que eu fiz para sair da estagnação total para o meu melhor físico, de forma 100% natural e estratégica.
-              </p>
-            </div>
-
-            <div className="pt-4">
-               <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10">
-                    <Quote className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-lg font-black text-white uppercase italic tracking-tighter">Matheus</span>
-                    <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Criador do Método</span>
-                  </div>
-               </div>
-            </div>
-          </div>
-
-          {/* DESTAQUE PRINCIPAL (FOTO ATUAL) */}
-          <div className="relative group order-1 lg:order-2">
-            <div className="relative h-[500px] rounded-[2.5rem] overflow-hidden border border-primary/40 shadow-[0_0_40px_rgba(249,115,22,0.15)] bg-zinc-900">
-                <img 
-                  src={timelineData[5].image} // Usa a foto "O Método" como destaque
-                  alt="Resultado Atual" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/50 to-transparent p-8 flex items-end justify-between">
-                <div>
-                    <span className="text-primary font-black text-xs uppercase tracking-widest flex items-center gap-2 mb-1">
-                        <Dumbbell className="w-4 h-4" /> Resultado Real
-                    </span>
-                    <h4 className="text-3xl font-black text-white uppercase italic tracking-tighter">O Físico Proibido</h4>
-                </div>
-                </div>
+              {/* Pilares de Autoridade */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+                 <div className="flex flex-col items-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/10 group hover:border-primary/40 transition-all">
+                    <GraduationCap className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-center text-zinc-300">EDUCADOR <br/>FÍSICO</span>
+                 </div>
+                 <div className="flex flex-col items-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/10 group hover:border-primary/40 transition-all">
+                    <Microscope className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-center text-zinc-300">ESP. EM <br/>BIOQUÍMICA</span>
+                 </div>
+                 <div className="flex flex-col items-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/10 group hover:border-primary/40 transition-all">
+                    <Users className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-center text-zinc-300">+1000 <br/>ALUNOS</span>
+                 </div>
+                 <div className="flex flex-col items-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/10 group hover:border-primary/40 transition-all">
+                    <Target className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-center text-zinc-300">RESULTADO <br/>GARANTIDO</span>
+                 </div>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* PARTE 2: LINHA DO TEMPO VISUAL (GRID DE 10 FOTOS) */}
-        <div className="space-y-12">
-            <div className="text-center space-y-4">
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                <div className="inline-flex items-center justify-center gap-2 pt-8 text-primary font-black uppercase italic tracking-widest text-xs">
-                    <TrendingUp className="w-4 h-4" /> Timeline Evolutiva
-                </div>
-                <h3 className="text-3xl md:text-5xl font-black text-white font-display uppercase italic tracking-tight">
-                    A Jornada por trás do Método
-                </h3>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                {timelineData.map((item, index) => (
-                    <div key={index} className="flex flex-col gap-3 group cursor-default">
-                        <div className={`relative aspect-[3/4] rounded-2xl overflow-hidden border-2 ${item.borderColor} shadow-lg bg-zinc-900 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]`}>
-                            <img 
-                                src={item.image} 
-                                alt={item.title}
-                                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                            
-                            {/* Número da etapa */}
-                            <div className="absolute top-2 left-2 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-[10px] font-black text-white shadow-lg">
-                                {index + 1}
-                            </div>
-                        </div>
-                        
-                        <div className="text-center space-y-1 px-1">
-                            <p className={`text-[10px] font-black uppercase tracking-widest ${item.textColor}`}>
-                                {item.year}
-                            </p>
-                            <p className="text-xs font-bold text-white uppercase italic leading-tight group-hover:text-primary transition-colors">
-                                {item.title}
-                            </p>
-                        </div>
-                    </div>
-                ))}
-            </div>
         </div>
       </div>
     </section>

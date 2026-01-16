@@ -15,12 +15,13 @@ const Manifesto: React.FC = () => {
             <h2 className="text-4xl md:text-6xl font-black text-foreground font-display uppercase italic leading-[0.9] tracking-tighter">
               POR QUE VOCÊ AINDA <br /><span className="text-red-600">PARECE UM AMADOR?</span>
             </h2>
+
             <div className="space-y-6 text-zinc-400 text-lg leading-tight font-medium">
               <p className="italic">Faça o teste do espelho agora. Olhe para si mesmo. Cadê a evolução? Cadê a força que você prometeu que teria?</p>
               
-              <p className="text-white font-black uppercase tracking-tighter">VOCÊ JÁ PASSOU POR ISSO:</p>
+              <p className="text-white font-black uppercase tracking-tighter pt-4">VOCÊ JÁ PASSOU POR ISSO:</p>
               
-              <div className="space-y-4 pt-4">
+              <div className="space-y-4">
                 {[
                   "Seguiu treino de influencer e não viu diferença?",
                   "Tentou suplemento caro e só perdeu dinheiro?",
@@ -36,7 +37,7 @@ const Manifesto: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-zinc-900/40 p-10 rounded-[2.5rem] border border-white/5 space-y-8 relative overflow-hidden">
+          <div className="bg-zinc-900/40 p-10 rounded-[2.5rem] border border-white/5 space-y-8 relative overflow-hidden h-full flex flex-col justify-center">
              <div className="absolute top-0 right-0 p-8 opacity-[0.03]">
                 <Skull className="w-48 h-48 text-white" />
              </div>

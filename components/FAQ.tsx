@@ -6,7 +6,7 @@ import { cn } from '../lib/utils';
 /**
  * CONFIGURAÇÃO DE SUPORTE
  */
-const LINK_WHATSAPP_SUPORTE = 'https://wa.me/5500000000000?text=Oi,%20quero%20tirar%20uma%20dúvida%20sobre%20o%20Protocolo%20Força%20Proibida!';
+const LINK_WHATSAPP_SUPORTE = 'https://wa.me/5537998059950?text=oi%20matheus!%20gostaria%20de%20saber%20mais%20sobre%20o%20for%C3%A7a%20proibida';
 
 const faqs = [
   {
