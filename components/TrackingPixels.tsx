@@ -2,12 +2,11 @@
 import React, { useEffect } from 'react';
 
 /**
- * CONFIGURAÇÃO DE RASTREAMENTO OFICIAL
- * Pixel ID: 1075052574767621
- * Token: EAAZAuemZBFjLkBQUfLZBZABargDGFkhKYjwuz9qCPiiZBTamTXm8GZBKGegcwY9fF2cvJNuPYcvwhm2dkximkkm3l1XtMZBq85UeSl20MRnNnuBS8wK3o9H32zbZCzFEdTaJGQecC6ZBKJs6DydlumVH0YO47Oati0cNBcm5eeJjhUebp3KI4JXbL6m1tx60vcSPqRAZDZD
+ * CONFIGURAÇÃO DE RASTREAMENTO OFICIAL ATUALIZADA
+ * Pixel ID: 2332198060633333
  */
 const PIXEL_IDS = {
-  FACEBOOK: '1075052574767621',
+  FACEBOOK: '2332198060633333',
   GOOGLE_TAG: 'G-XXXXXXX',
   TIKTOK: 'SEU_TIKTOK_ID'
 };
@@ -20,7 +19,7 @@ interface TrackingPixelsProps {
 const TrackingPixels: React.FC<TrackingPixelsProps> = ({ currentView, eventData }) => {
   
   useEffect(() => {
-    // 1. INJEÇÃO DO SCRIPT BASE DO FACEBOOK PIXEL
+    // 1. INJEÇÃO DO SCRIPT BASE DO FACEBOOK PIXEL (Caso não esteja no index.html)
     if (!window.fbq) {
       (function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -49,6 +48,9 @@ const TrackingPixels: React.FC<TrackingPixelsProps> = ({ currentView, eventData 
         break;
 
       case 'sales':
+        // ViewContent na página de vendas como solicitado
+        if (window.fbq) window.fbq('track', 'ViewContent');
+        
         // Se o usuário veio do quiz, consideramos um LEAD qualificado
         if (eventData?.fromQuiz && window.fbq) {
           window.fbq('track', 'Lead', { 

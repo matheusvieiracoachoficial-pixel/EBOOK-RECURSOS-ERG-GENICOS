@@ -7,6 +7,24 @@
     <title>Força Proibida – O Guia Natural dos Recursos que os Atletas NÃO Falam</title>
     <meta name="description" content="Descubra o guia natural dos recursos que a elite esconde. Força, foco e performance extrema sem segredos." />
     
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src='https://connect.facebook.net/en_US/fbevents.js';
+        s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script');
+      fbq('init', '2332198060633333'); // Seu Pixel ID Atualizado
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2332198060633333&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Favicon Personalizado -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%2309090b' stroke='%23f97316' stroke-width='4'/><text x='50%' y='65%' dominant-baseline='middle' text-anchor='middle' font-size='60'>💀</text></svg>">
     
@@ -38,7 +56,7 @@
                 foreground: "#000000",
               },
               accent: {
-                DEFAULT: "#22c55e", // Green 500
+                DEFAULT: "#4ade80", // Green 400
                 foreground: "#000000",
               },
               muted: {
@@ -55,15 +73,14 @@
               display: ['Orbitron', 'sans-serif'],
             },
             animation: {
-              "fade-in-up": "fade-in-up 0.4s ease-out forwards",
+              "fade-in-up": "fade-in-up 0.6s ease-out forwards",
               "float": "float 6s ease-in-out infinite",
               "pulse-slow": "pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
               "glow": "glow 2s ease-in-out infinite alternate",
-              "shimmer": "shimmer 2s linear infinite",
             },
             keyframes: {
               "fade-in-up": {
-                "0%": { opacity: "0", transform: "translateY(15px)" },
+                "0%": { opacity: "0", transform: "translateY(20px)" },
                 "100%": { opacity: "1", transform: "translateY(0)" },
               },
               "float": {
@@ -72,15 +89,11 @@
               },
               "pulse-slow": {
                 "0%, 100%": { opacity: "1" },
-                "50%": { opacity: "0.6" },
+                "50%": { opacity: "0.5" },
               },
               "glow": {
                 "0%": { filter: "drop-shadow(0 0 5px rgba(249, 115, 22, 0.4))" },
                 "100%": { filter: "drop-shadow(0 0 20px rgba(249, 115, 22, 0.8))" }
-              },
-              "shimmer": {
-                "0%": { backgroundPosition: "-200% 0" },
-                "100%": { backgroundPosition: "200% 0" }
               }
             }
           },
@@ -97,52 +110,34 @@
           --border: 240 3.7% 15.9%;
           --input: 240 3.7% 15.9%;
           --ring: 25 95% 53.1%;
-          --radius: 1rem;
+          --radius: 0.75rem;
         }
         
         body {
-          @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-white overflow-x-hidden;
+          @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-white;
         }
       }
       
       .text-gradient {
         @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-orange-400 to-secondary;
       }
-
-      .glass-card {
-        @apply bg-zinc-900/40 backdrop-blur-md border border-white/5 shadow-2xl;
-      }
-
-      .premium-glow {
-        box-shadow: 0 0 40px -10px rgba(249, 115, 22, 0.3);
-      }
-
-      .btn-primary {
-        @apply relative bg-primary text-black font-black uppercase italic tracking-tighter rounded-2xl border-b-8 border-orange-800 transition-all duration-200 active:scale-[0.98] active:border-b-0 active:translate-y-2;
-      }
       
       .hero-glow {
-        background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+        background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
       }
 
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
       }
       ::-webkit-scrollbar-track {
         @apply bg-zinc-950;
       }
       ::-webkit-scrollbar-thumb {
-        @apply bg-zinc-800 rounded-full;
+        @apply bg-zinc-800 rounded-full border-2 border-zinc-950;
       }
       ::-webkit-scrollbar-thumb:hover {
         @apply bg-primary;
-      }
-
-      /* Hide horizontal scroll */
-      html, body {
-        max-width: 100%;
-        overflow-x: hidden;
       }
     </style>
   <script type="importmap">

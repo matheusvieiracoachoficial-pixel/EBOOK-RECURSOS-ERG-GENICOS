@@ -2,12 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import SocialProof from './components/SocialProof';
+import Manifesto from './components/Manifesto';
+import Creator from './components/Creator'; 
+import Results from './components/Results';
+import Benefits from './components/Benefits';
 import Chapters from './components/Chapters';
-import Bonuses from './components/Bonuses';
 import Comparison from './components/Comparison';
+import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 import Pricing from './components/Pricing';
-import Creator from './components/Creator';
+import Bonuses from './components/Bonuses';
+import Guarantee from './components/Guarantee';
 import Footer from './components/Footer';
 import StickyCTA from './components/StickyCTA';
 import ThankYou from './components/ThankYou';
@@ -17,7 +22,7 @@ import Quiz from './components/Quiz';
 import Upsell from './components/Upsell';
 import Downsell from './components/Downsell';
 import TrackingPixels from './components/TrackingPixels';
-import FAQ from './components/FAQ';
+import ExitPopup from './components/ExitPopup';
 
 /**
  * LINKS OFICIAIS CAKTO
@@ -40,7 +45,6 @@ export default function App() {
     if (step === 'thanks') setCurrentView('thanks');
     if (step === 'upsell') setCurrentView('upsell');
     if (step === 'downsell') setCurrentView('downsell');
-    if (step === 'sales') setCurrentView('sales');
     window.scrollTo(0, 0);
   }, []);
 
@@ -85,9 +89,6 @@ export default function App() {
             setUserProfile(profile);
             setTrackingData({ fromQuiz: true });
             setCurrentView('sales');
-            setTimeout(() => {
-              window.scrollTo({top: 0, behavior: 'smooth'});
-            }, 500);
           }} 
           onClose={() => setCurrentView('sales')} 
         />
@@ -103,22 +104,30 @@ export default function App() {
               isExpired={isExpired} 
               userProfile={userProfile} 
             />
-            <SocialProof />
+            <Manifesto />
+            <Results />
+            <Benefits />
             <Chapters />
-            <Bonuses />
             <Comparison />
+            <Testimonials />
+            <FAQ />
+            <Bonuses />
             <Pricing 
               onPurchase={goToCheckout} 
               isExpired={isExpired} 
               onExpire={() => setIsExpired(true)} 
             />
-            <FAQ />
-            <Creator />
+            <Guarantee 
+              onPurchase={goToCheckout} 
+              isExpired={isExpired} 
+            />
+            <Creator /> 
           </main>
           <Footer />
           <StickyCTA onPurchase={goToCheckout} isExpired={isExpired} />
           <SocialProofPopup />
           <CountdownTimer onExpire={() => setIsExpired(true)} isExpired={isExpired} />
+          <ExitPopup onPurchase={goToCheckout} />
         </>
       )}
     </div>

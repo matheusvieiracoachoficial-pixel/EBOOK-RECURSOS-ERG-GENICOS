@@ -16,6 +16,16 @@ const Manifesto: React.FC = () => {
               POR QUE VOCÊ AINDA <br /><span className="text-red-600">PARECE UM AMADOR?</span>
             </h2>
 
+            {/* CARD DE IMAGEM 1 (1536x1024) */}
+            <div className="relative w-full aspect-[3/2] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(255,0,0,0.1)] group">
+              <img 
+                src="https://i.imgur.com/uAD9NDk.png" 
+                alt="Os Pilares do Protocolo" 
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
+            </div>
+
             <div className="space-y-6 text-zinc-400 text-lg leading-tight font-medium">
               <p className="italic">Faça o teste do espelho agora. Olhe para si mesmo. Cadê a evolução? Cadê a força que você prometeu que teria?</p>
               
@@ -34,6 +44,16 @@ const Manifesto: React.FC = () => {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* SEGUNDO CARD DE IMAGEM SOLICITADO (1536x1024) */}
+            <div className="relative w-full aspect-[3/2] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.8)] group mt-8">
+              <img 
+                src="https://i.imgur.com/HTtp2u9.png" 
+                alt="Visualização da Transformação" 
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent" />
             </div>
           </div>
 

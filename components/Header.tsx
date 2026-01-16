@@ -33,30 +33,36 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, hideNav = false }) => {
       isScrolled ? "py-4 bg-zinc-950/90 backdrop-blur-xl border-b border-white/5 shadow-2xl" : "py-6 bg-transparent"
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3 group cursor-pointer shrink-0" onClick={handleLogoClick}>
-          <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <div className="flex items-center gap-2 group cursor-pointer shrink-0" onClick={handleLogoClick}>
+          <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
             <img 
               src="https://i.imgur.com/TPQK7ag.png" 
-              alt="Força Proibida" 
-              className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]"
+              alt="FP" 
+              className="w-full h-full object-contain mix-blend-screen"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                const zap = document.createElement('div');
+                zap.innerHTML = '⚡';
+                zap.style.color = '#f97316';
+                e.currentTarget.parentElement?.appendChild(zap);
+              }}
             />
           </div>
-          <span className="font-display font-black text-xs md:text-xl tracking-tighter uppercase leading-none whitespace-nowrap">
+          <span className="font-display font-black text-sm md:text-xl tracking-tighter uppercase leading-none whitespace-nowrap">
             FORÇA <span className="text-primary">PROIBIDA</span>
           </span>
         </div>
 
         {!hideNav && (
           <nav className="hidden lg:flex items-center gap-8">
-            <a href="#social-proof" className="text-[10px] font-black uppercase tracking-widest text-foreground/60 hover:text-primary transition-colors italic">Resultados</a>
-            <a href="#chapters" className="text-[10px] font-black uppercase tracking-widest text-foreground/60 hover:text-primary transition-colors italic">Módulos</a>
-            <a href="#pricing" className="text-[10px] font-black uppercase tracking-widest text-foreground/60 hover:text-primary transition-colors italic">Acesso</a>
+            <a href="#manifesto" className="text-xs font-black uppercase tracking-widest text-foreground/60 hover:text-primary transition-colors italic">O Método</a>
+            <a href="#pricing" className="text-xs font-black uppercase tracking-widest text-foreground/60 hover:text-primary transition-colors italic">Oferta</a>
           </nav>
         )}
 
         <button 
           onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-primary hover:bg-orange-400 text-black px-4 md:px-8 py-2 md:py-3 rounded-lg md:rounded-xl font-black text-[10px] md:text-xs uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 whitespace-nowrap"
+          className="bg-primary hover:bg-orange-400 text-black px-4 md:px-6 py-2 md:py-2.5 rounded-lg md:rounded-xl font-black text-[10px] md:text-xs uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/10 whitespace-nowrap"
         >
           Acessar Agora
         </button>

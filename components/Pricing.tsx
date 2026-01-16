@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Star, ShieldAlert, CheckCircle2, Gift, Zap, ShieldCheck, Lock } from 'lucide-react';
+import { Check, ArrowRight, BookOpen, Star, ShieldAlert, Zap, Lock } from 'lucide-react';
 import { cn } from '../lib/utils';
 import CountdownTimer from './CountdownTimer';
 
@@ -10,149 +10,111 @@ interface PricingProps {
   onExpire?: () => void;
 }
 
-const offerItems = [
-  { name: "Protocolo Força Proibida (Manual Base)", price: "R$ 147,00" },
-  { name: "Guia Alimentar de Substituição", price: "R$ 47,00" },
-  { name: "Planilha Calculadora de Macros", price: "R$ 37,00" },
-  { name: "Acesso ao Podcast Fechado", price: "R$ 97,00" },
-  { name: "Acesso à Comunidade VIP", price: "R$ 197,00" },
-];
-
 const Pricing: React.FC<PricingProps> = ({ onPurchase, isExpired, onExpire }) => {
   return (
-    <section id="pricing" className="py-32 bg-zinc-950 px-4 relative overflow-hidden">
-      {/* Visual background dynamics */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="pricing" className="py-24 bg-[#050505] px-4 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-primary/10 blur-[180px] rounded-full pointer-events-none" />
       
-      <div className="max-w-5xl mx-auto space-y-16 relative z-10">
-        <div className="text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-[0.3em] italic">
-            ACESSO IMEDIATO LIBERADO
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-4">
+            <Zap className="w-4 h-4" /> ÚLTIMA CHANCE REAL
           </div>
-          <h2 className="text-5xl md:text-8xl font-black text-white uppercase italic tracking-tighter leading-[0.85]">
-            SÃO OS ÚLTIMOS <br /><span className="text-gradient">MINUTOS...</span>
-          </h2>
-          <p className="text-zinc-500 font-bold uppercase tracking-widest text-xs md:text-sm italic">
-            O valor real desse conhecimento é incalculável. A oferta é simbólica.
+          <h3 className="text-5xl md:text-9xl font-black text-white font-display uppercase italic leading-none tracking-tighter">
+            O INVESTIMENTO <br /> <span className="text-gradient">MAIS INTELIGENTE.</span>
+          </h3>
+          <p className="text-zinc-500 text-lg md:text-2xl max-w-2xl mx-auto font-bold uppercase tracking-tighter italic leading-tight">
+            VOCÊ PODE CONTINUAR IGUAL, OU PAGAR <span className="text-white underline decoration-primary underline-offset-8">O PREÇO DE UM LANCHE</span> E DESTRAVAR O SEU FÍSICO.
           </p>
         </div>
 
-        {/* Premium Offer Card */}
-        <div className={cn(
-          "relative flex flex-col rounded-[3rem] md:rounded-[4rem] overflow-hidden border transition-all duration-700",
-          isExpired ? "opacity-40 grayscale pointer-events-none border-white/5" : "bg-zinc-900 border-primary/30 shadow-[0_0_100px_rgba(249,115,22,0.2)]"
-        )}>
-          {/* Discount Header */}
-          <div className="bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-500 py-6 text-center">
-            <span className="text-black font-black text-sm md:text-lg uppercase italic tracking-[0.2em] flex items-center justify-center gap-3">
-              <Gift className="w-5 h-5 md:w-6 md:h-6 animate-bounce" /> VOCÊ ESTÁ LEVANDO O COMBO ELITE:
-            </span>
-          </div>
-
-          <div className="p-8 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Value Stack */}
-            <div className="space-y-8">
-              <div className="space-y-5">
-                {offerItems.map((item, i) => (
-                  <div key={i} className="flex items-center justify-between group">
-                    <div className="flex items-center gap-4">
-                      <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20">
-                         <CheckCircle2 className="w-4 h-4 text-accent" />
-                      </div>
-                      <span className="text-zinc-200 font-black italic text-sm md:text-lg uppercase tracking-tight group-hover:text-white transition-colors">
-                        {item.name}
-                      </span>
-                    </div>
-                    <span className="text-zinc-600 font-black italic text-xs md:text-sm line-through shrink-0 ml-4">
-                      {item.price}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-10 border-t border-white/5 space-y-6">
-                 <div className="flex items-center justify-between opacity-40">
-                    <span className="text-zinc-400 font-black text-xs uppercase italic tracking-[0.2em]">VALOR TOTAL ESTIMADO:</span>
-                    <span className="text-zinc-400 font-black text-xl line-through italic">R$ 525,00</span>
-                 </div>
-                 <div className="bg-primary/5 border border-primary/20 rounded-3xl p-6 flex items-center gap-4">
-                    <Zap className="w-8 h-8 text-primary animate-pulse" />
-                    <p className="text-xs md:text-sm font-black text-zinc-300 uppercase italic leading-tight">
-                       CONDIÇÃO EXCLUSIVA HOJE: <br />
-                       <span className="text-primary text-lg">ECONOMIA REAL DE R$ 505,10.</span>
-                    </p>
-                 </div>
-              </div>
-            </div>
-
-            {/* Pricing Action */}
-            <div className="flex flex-col justify-center items-center lg:items-end text-center lg:text-right space-y-10">
-               <div className="space-y-4">
-                  <span className="text-zinc-500 text-sm md:text-lg font-black uppercase italic tracking-widest block">SAI TUDO POR APENAS:</span>
-                  <div className="flex items-start justify-center lg:justify-end gap-1">
-                      <span className="text-3xl md:text-4xl font-black text-primary mt-6 italic">R$</span>
-                      <span className="text-[10rem] md:text-[14rem] font-black text-white tracking-tighter font-display italic leading-none drop-shadow-[0_0_40px_rgba(255,255,255,0.15)]">
-                        19
-                      </span>
-                      <div className="flex flex-col items-start mt-6">
-                        <span className="text-4xl md:text-5xl font-black text-primary italic">,90</span>
-                        <span className="text-[10px] md:text-xs text-zinc-500 font-black uppercase tracking-widest italic ml-1">Pagamento único</span>
-                      </div>
-                  </div>
-                  <div className="bg-accent/10 border border-accent/20 px-4 py-2 rounded-xl inline-block">
-                    <p className="text-accent font-black text-xs uppercase tracking-[0.3em] italic animate-pulse">
-                      <ShieldCheck className="w-4 h-4 inline mr-2" /> ACESSO VITALÍCIO LIBERADO
-                    </p>
-                  </div>
-               </div>
-
-               <div className="w-full space-y-6">
-                  {!isExpired ? (
-                    <button 
-                      onClick={onPurchase}
-                      className="btn-primary w-full py-8 md:py-10 text-2xl md:text-4xl shadow-[0_30px_70px_-20px_rgba(249,115,22,0.6)] group"
-                    >
-                      GARANTIR MINHA VAGA
-                      <ArrowRight className="w-8 h-8 md:w-12 md:h-12 group-hover:translate-x-3 transition-transform" />
-                    </button>
-                  ) : (
-                    <div className="bg-red-500/10 border border-red-500/20 p-10 rounded-3xl text-center w-full">
-                      <p className="text-red-500 text-lg font-black uppercase tracking-widest italic flex items-center justify-center gap-3">
-                        <ShieldAlert className="w-6 h-6" /> OFERTA ENCERRADA
-                      </p>
-                    </div>
-                  )}
-                  
-                  <div className="flex items-center justify-center lg:justify-end gap-6 opacity-40 grayscale">
-                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-400">
-                       <Lock className="w-3 h-3" /> Seguro
-                    </div>
-                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-400">
-                       <ShieldCheck className="w-3 h-3" /> Garantido
-                    </div>
-                    <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-2048.png" alt="Mercado Pago" className="h-4 object-contain" />
-                  </div>
-               </div>
-            </div>
-          </div>
+        <div className="max-w-md mx-auto mb-16">
+          <CountdownTimer variant="inline" isExpired={!!isExpired} onExpire={onExpire || (() => {})} />
         </div>
 
-        {/* Global Stats/Timer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch pt-8">
-           <div className="h-full">
-              <CountdownTimer variant="inline" isExpired={!!isExpired} onExpire={onExpire || (() => {})} />
-           </div>
-           <div className="flex items-center gap-8 p-10 bg-zinc-900/60 border border-white/10 rounded-[3rem] shadow-xl">
-              <div className="w-20 h-20 shrink-0 bg-accent/10 rounded-[2rem] flex items-center justify-center border border-accent/20">
-                 <ShieldCheck className="w-10 h-10 text-accent" />
+        <div className="max-w-2xl mx-auto">
+          <div className={cn(
+            "relative flex flex-col p-8 md:p-16 rounded-[4rem] border transition-all duration-700 group bg-zinc-900 border-primary/30 shadow-[0_0_120px_rgba(249,115,22,0.2)]",
+            isExpired && "opacity-80 grayscale pointer-events-none"
+          )}>
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 px-10 py-4 rounded-full text-[14px] font-black uppercase tracking-[0.2em] shadow-2xl bg-gradient-to-r from-primary via-orange-400 to-secondary text-black animate-glow whitespace-nowrap">
+              <span className="flex items-center gap-3">
+                <Star className="w-5 h-5 fill-black" />
+                ACESSO COMPLETO + 5 BÔNUS
+              </span>
+            </div>
+
+            <div className="mb-12 flex items-center justify-between">
+              <div className="space-y-2 text-left">
+                <h4 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-none">Força Proibida</h4>
+                <div className="flex items-center gap-2">
+                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                   <p className="text-[11px] text-zinc-500 font-black uppercase tracking-widest italic">Entrega Imediata no E-mail</p>
+                </div>
               </div>
-              <div className="space-y-2">
-                 <h4 className="text-2xl font-black text-white uppercase italic tracking-tight leading-none">RISCO ZERO</h4>
-                 <p className="text-zinc-500 text-sm font-bold uppercase italic leading-tight">
-                    7 dias de garantia incondicional. Evolua drasticamente ou devolvemos 100% do seu dinheiro.
-                 </p>
+              <div className="w-24 h-24 rounded-[2rem] flex items-center justify-center border bg-primary/10 border-primary/20 shadow-inner shrink-0">
+                <BookOpen className="w-12 h-12 text-primary" />
               </div>
-           </div>
+            </div>
+
+            <div className="mb-12 p-10 bg-black/60 rounded-[3rem] border border-white/5 text-center">
+              <span className="text-zinc-600 text-sm font-black line-through italic mb-2 uppercase tracking-widest block">De R$ 147,00 por:</span>
+              <div className="flex items-start justify-center gap-1">
+                  <span className="text-3xl font-black text-primary mt-6 italic">R$</span>
+                  <span className="text-[10rem] md:text-[13rem] font-black text-white tracking-tighter font-display leading-[0.8] drop-shadow-[0_15px_45px_rgba(249,115,22,0.4)]">19</span>
+                  <div className="flex flex-col mt-6">
+                     <span className="text-3xl font-black text-primary italic">,90</span>
+                     <span className="text-[10px] font-black uppercase text-zinc-500 tracking-widest mt-2">ÚNICO PAGAMENTO</span>
+                  </div>
+              </div>
+            </div>
+
+            <ul className="space-y-6 mb-12 px-2 text-left">
+              {[
+                "Protocolo Força Proibida (7 Dias)",
+                "Lista de Ergogênicos Naturais",
+                "Estratégia de Foco Inabalável",
+                "Plano Alimentar de Performance",
+                "Manual Sono & Recuperação",
+                "BÔNUS: Grupo VIP de Elite"
+              ].map((feature, idx) => (
+                <li key={idx} className="flex items-center gap-4 text-base md:text-xl font-bold italic text-zinc-200 uppercase tracking-tight">
+                  <div className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center bg-accent text-black">
+                    <Check className="w-5 h-5 stroke-[3.5px]" />
+                  </div>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            {!isExpired ? (
+              <div className="space-y-6">
+                <button 
+                  onClick={onPurchase}
+                  className="w-full py-8 rounded-[2.5rem] font-black text-2xl md:text-4xl uppercase tracking-tighter transition-all flex items-center justify-center gap-4 border-b-[14px] bg-primary text-black hover:bg-orange-400 border-orange-900 shadow-2xl shadow-primary/30 active:scale-[0.98] group"
+                >
+                  EU QUERO O PROTOCOLO AGORA
+                  <ArrowRight className="w-10 h-10 group-hover:translate-x-2 transition-transform" />
+                </button>
+                <div className="flex flex-col items-center gap-6 pt-4">
+                  <div className="flex items-center gap-8 opacity-60">
+                    <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-256.png" alt="Mercado Pago" className="h-8 grayscale" />
+                    <div className="w-px h-8 bg-white/10" />
+                    <img src="https://logospng.org/download/pix/logo-pix-256.png" alt="Pix" className="h-8 grayscale" />
+                  </div>
+                  <div className="flex items-center gap-2 text-zinc-600">
+                    <Lock className="w-3 h-3" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] italic">Transação 100% Segura</span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-red-500/10 border border-red-500/20 p-8 rounded-[2.5rem] text-center">
+                <ShieldAlert className="w-12 h-12 text-red-500 mx-auto mb-4" />
+                <p className="text-red-500 text-xl font-black uppercase tracking-widest italic">VAGAS ENCERRADAS</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

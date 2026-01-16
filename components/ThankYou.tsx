@@ -18,7 +18,7 @@ import { cn } from '../lib/utils';
  * CONFIGURAÇÃO DE LINKS OFICIAIS
  */
 const LINK_EBOOK_DRIVE = 'https://drive.google.com/file/d/1HKtP5bJlphy97toAUZ-v2PMCd0SrGpDc/view?usp=sharing';
-const LINK_WHATSAPP_SUPORTE = 'https://wa.me/5537998059950?text=oi%20matheus!%20gostaria%20de%20saber%20mais%20sobre%20o%20for%C3%A7a%20proibida';
+const LINK_WHATSAPP_SUPORTE = 'https://wa.me/5500000000000?text=Oi,%20acabei%20de%20comprar%20o%20protocolo%20e%20quero%20começar%20agora!';
 const LINK_GRUPO_VIP = 'https://chat.whatsapp.com/DykO4bZWx3XIbXOANHrh1B';
 const INSTAGRAM_HANDLE = '@forcaproibida';
 
