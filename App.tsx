@@ -14,7 +14,6 @@ import ThankYou from './components/ThankYou';
 import SocialProofPopup from './components/SocialProofPopup';
 import CountdownTimer from './components/CountdownTimer';
 import Quiz from './components/Quiz';
-import DevNav from './components/DevNav';
 import Upsell from './components/Upsell';
 import Downsell from './components/Downsell';
 import TrackingPixels from './components/TrackingPixels';
@@ -33,7 +32,6 @@ export default function App() {
   const [currentView, setCurrentView] = useState<ViewType>('quiz');
   const [isExpired, setIsExpired] = useState(false);
   const [userProfile, setUserProfile] = useState<string | null>(null);
-  const [showDevNav, setShowDevNav] = useState(true);
   const [trackingData, setTrackingData] = useState<any>(null);
 
   useEffect(() => {
@@ -57,14 +55,6 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden font-sans">
       
       <TrackingPixels currentView={currentView} eventData={trackingData} />
-
-      {showDevNav && (
-        <DevNav 
-          currentView={currentView} 
-          setView={setCurrentView} 
-          onClose={() => setShowDevNav(false)} 
-        />
-      )}
 
       {currentView === 'thanks' && (
         <>
